@@ -38,10 +38,15 @@ $ php codecept.phar run --steps
 > **Örnek çıktı:**
 > 
 > I WANT TO SIGN IN
+
 > I am on page **'/login'**
+
 > I fill field **'username'**, **'davert'**
+
 > I fill field **'password'**, **'qwerty'**
+
 > I click **'LOGIN'**
+
 > I see **'Welcome, Davert!'**
 
 
