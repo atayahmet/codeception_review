@@ -4,14 +4,48 @@ Codeception
 RUN TESTS
 -------------
 
-[Functional Tests](#Functional-Tests)
-
-[Acceptance Tests](#Acceptance-Tests)
+[Acceptance Tests](#acceptance-tests)
 
 [- PhpBrowser (command line)](#phpbrowser)
 
 [- WebDriver (Selenium)](#webdriver)
 
+[Functional Tests](#Functional-Tests)
+
+##Acceptance Tests
+Acceptance Test PhpBrowser ve WebDriver modülleriyle çalışır. Functional testlerden farkı uygulamanızın tüm işlevlerin çalışırlığını kontrol etmesidir. Yazacağınız senaryolar ile uygulamanızın stabil çalışmasında etkili olabilirsiniz.
+
+Diğer bir artısı projelerinizin hangi platformlar da geliştirildiğinin hiç bir önemi olmamasıdır. Acceptance testleri sayfa çıktılarını baz aldığı için platform kısıtlaması bulunmamaktadır.
+
+**Örnek senaryo:**
+```php
+<?php
+$I = new AcceptanceTester($scenario);
+$I->wantTo('sign in');
+$I->amOnPage('/login');
+$I->fillField('username', 'davert');
+$I->fillField('password', 'qwerty');
+$I->click('LOGIN');
+$I->see('Welcome, Davert!');
+?>
+```
+
+Yukarıdaki senaryoyu inceleyelim:
+
+- İlk olarak **wantTo()** methodu ile senaryo adını belirledik.
+
+- **amOnPage()** methodu ile test edilecek url'ye gittik
+
+- Sayfadaki giriş formunu **fillField()** metodu ile doldurduk.
+
+- Değeri **LOGIN** olan butona tıkladık.
+
+- Sonuç olarak tanımladığımız değeri **see()** metodu ile kontrol ettik
+
+Bütün bu işlemler arka tarafta Codeception tarafından yapıldı bize sadece test sonuçları döndü.
+
+Örnek çıktı:
+![enter image description here](https://lh5.googleusercontent.com/-z8JHLaKVHts/VL5InZshuOI/AAAAAAAAAKs/WrEGbv5NnHo/s0/Screenshot+from+2015-01-20+14:20:16.png "Screenshot from 2015-01-20 14:20:16.png")
 
 ##PhpBrowser
 
@@ -31,6 +65,29 @@ Aşağıda PhpBrowser modülü için yapılandırma ayarlarını görüyorsunuz.
 > 
 ![enter image description here](https://lh6.googleusercontent.com/-qI-r8SAaico/VL5BI4qcqzI/AAAAAAAAAKE/-aCl3K9dOWs/s0/Screenshot+from+2015-01-20+10:44:06.png "Screenshot from 2015-01-20 10:44:06.png")
 
+##WebDriver (Selenium)
+
+PhpBrowser ile yazılan testler direkt WebDriver modülü altında Selenium ile çalıştırılabilir. Yalnız test suite ayarlarını WebDriver için yapılandırmamız gerekiyor.
+
+![enter image description here](https://lh3.googleusercontent.com/-4cvKmAemO_M/VL5BxJewIkI/AAAAAAAAAKQ/hW44s83Qz1o/s0/Screenshot+from+2015-01-20+11:57:34.png "Screenshot from 2015-01-20 11:57:34.png")
+
+####Özel Metotlar:
+- Wait
+
+WebDriver modülüne özgü metotlar yukarıda sıralanmıştır.
+
+####**Wait**
+Uygulamaları test ederken sayfa içinde çalışacak olan javascript işlemlerini beklememiz gerekebilir. Özellikle asenkron çalışan javascript işlemleri için bu metot oldukça işe yarar görünüyor.
+
+**Örnek:**
+```php
+<?php
+	$I->waitForElement('#agree_button', 30); // secs
+	$I->click('#agree_button');
+?>
+```
+
+Yukarıda id'si **#agree_button** olan link tıklandığın da 30 saniye bekleyecektir. 
 
 
 Hey! I'm your first Markdown document in **StackEdit**[^stackedit]. Don't delete me, I'm very helpful! I can be recovered anyway in the **Utils** tab of the <i class="icon-cog"></i> **Settings** dialog.
