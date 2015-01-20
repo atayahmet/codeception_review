@@ -1,7 +1,29 @@
-Welcome to StackEditx!
+Codeception
 ===================
 
-    enter code here
+RUN TESTS
+-------------
+
+[Functional Tests](Functional-Tests)
+[Acceptance Tests](Acceptance-Tests)
+:   [- PhpBrowser (command line)](PhpBrowser)
+:   [- WebDriver (Selenium)](WebDriver)
+
+
+##PhpBrowser
+
+> **Özellikler:**
+
+> - Codeception Modülüdür.
+> - InnerBrowser Kütüphanesine extend olur.
+> - GuzzleHttp\Client paketini kullanır.
+> - Symfony BrowserKit paketini kullanır.
+> - Php Curl Extension kütüphanesi aktif olmalıdır.
+> - Javascript içeren testleri çalıştırmaz.
+> - Başarısız olan testleri _output klasörü altında saklar.
+
+
+
 
 Hey! I'm your first Markdown document in **StackEdit**[^stackedit]. Don't delete me, I'm very helpful! I can be recovered anyway in the **Utils** tab of the <i class="icon-cog"></i> **Settings** dialog.
 
@@ -162,7 +184,7 @@ Term 3
 
 GitHub's fenced code blocks are also supported with **Highlight.js** syntax highlighting:
 
-```
+```php
 // Foo
 var bar = 0;
 ```
