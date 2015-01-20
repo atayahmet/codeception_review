@@ -5,8 +5,11 @@ RUN TESTS
 -------------
 
 [Functional Tests](#Functional-Tests)
+
 [Acceptance Tests](#Acceptance-Tests)
+
 [- PhpBrowser (command line)](#phpbrowser)
+
 [- WebDriver (Selenium)](#webdriver)
 
 
