@@ -30,6 +30,22 @@ $I->see('Welcome, Davert!');
 ?>
 ```
 
+**Çalıştırılması:**
+```sh
+$ php codecept.phar run --steps
+```
+
+> **Örnek çıktı:**
+> 
+> I WANT TO SIGN IN
+> I am on page **'/login'**
+> I fill field **'username'**, **'davert'**
+> I fill field **'password'**, **'qwerty'**
+> I click **'LOGIN'**
+> I see **'Welcome, Davert!'**
+
+
+
 Yukarıdaki senaryoyu inceleyelim:
 
 - İlk olarak **wantTo()** methodu ile senaryo adını belirledik.
@@ -44,8 +60,24 @@ Yukarıdaki senaryoyu inceleyelim:
 
 Bütün bu işlemler arka tarafta Codeception tarafından yapıldı bize sadece test sonuçları döndü.
 
-Örnek çıktı:
-![enter image description here](https://lh5.googleusercontent.com/-z8JHLaKVHts/VL5InZshuOI/AAAAAAAAAKs/WrEGbv5NnHo/s0/Screenshot+from+2015-01-20+14:20:16.png "Screenshot from 2015-01-20 14:20:16.png")
+Acceptance testlerinde karşılaştırma metodları **see** önceki ile başlar. Bu ek senaryonun sonuna geldiğini ve ekrana sonucu döndüreceği anlamına gelmektedir.
+
+**Buna örnek metotlar:**
+
+```php
+$I->see('Logout');
+```
+Sonuç çıktısında **Logout** kelimesini arar, bulursa test geçer aksi takdirde başarısız olur.
+
+```php
+$I->seeCheckboxIsChecked('#agree');
+```
+ID'si **#agree** olan checkbox seçili ise test başarılı olacaktır.
+
+```php
+$I->seeCookie('PHPSESSID');
+```
+**PHPSESSID** adında bir cookie var test başarılı olacaktır.
 
 ##PhpBrowser
 
