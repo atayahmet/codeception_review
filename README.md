@@ -4,10 +4,10 @@ Codeception
 RUN TESTS
 -------------
 
-[Functional Tests](Functional-Tests)
-[Acceptance Tests](Acceptance-Tests)
-[- PhpBrowser (command line)](PhpBrowser)
-[- WebDriver (Selenium)](WebDriver)
+[Functional Tests](#Functional-Tests)
+[Acceptance Tests](#Acceptance-Tests)
+[- PhpBrowser (command line)](#PhpBrowser)
+[- WebDriver (Selenium)](#WebDriver)
 
 
 ##PhpBrowser
