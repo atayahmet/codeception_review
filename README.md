@@ -1,6 +1,15 @@
 Codeception
 ===================
 
+Diğer bir adıyla Behavior Driven Development (BDD).
+
+CodeCeption çatısı altında üç çeşit test yöntemi bulunmaktadır. Bunlar Acceptance Tests, Functional Tests ve Unit Tests yöntemleri.
+
+Bi çok yönden ortak yönleri olduğu gibi her birini özel kılan bazı özellikleri mevcuttur.
+
+Aşağıdaki başlıklarda bu farklılıkları inceleyebilirsiniz.
+
+
 RUN TESTS
 -------------
 
@@ -197,7 +206,11 @@ PhpUnit testlerinizi CodeCeption içinde yazdığınız da bir takım işleriniz
 
 Ayrıca PhpUnit kurulumuna ihtiyaç olmadığını hatırlatalım.
 
-Unit test oluşturmanın iki farklı yöntemi bulunuyor.
+Unit test ayar yapılandırması aşağıdaki gibidir:
+
+![enter image description here](https://lh3.googleusercontent.com/-24ZlE477-QU/VL-hpPHT9-I/AAAAAAAAALU/O9okL_0OXmo/s0/Screenshot+from+2015-01-21+14:53:52.png "Screenshot from 2015-01-21 14:53:52.png")
+
+Unit test kullanımının iki farklı yöntemi bulunuyor.
 
 - Birincisi klasik diyebileceğimiz PhpUnit test sınıfları.
 
