@@ -12,7 +12,7 @@ RUN TESTS
 
 [Functional Tests](#functional-tests)
 
-[API Tests](#api-tests)
+[Unit Tests](#unit-tests)
 
 ##Acceptance Tests
 - Acceptance Test PhpBrowser ve WebDriver modülleriyle çalışır. 
@@ -144,7 +144,9 @@ Varsayılan olarak desteklenen frameworkler:
 
 - Phalcon1
 
-Functional testler Acceptance tastlerle hemen hemen kullanımı aynıdır, aralarındaki tek fark functional testlerin bir web server'a ihtiyacı olmamasıdır.
+Functional testler Acceptance tastlerle hemen hemen kullanımı aynıdır, aralarındaki tek fark functional testlerin bir web server'a ihtiyacı olmamasıdır. 
+
+Bütün framework modülleri ve PhpBrowser modülü aynı methodları ve aynı engine kullanmaktadır.
 
 > **Önemli:**
 > Functional testler performans bakımından Acceptance testlerden daha üstün fakat daha az stabil çalışmaktadır.
@@ -161,7 +163,7 @@ PHP de tüm request'ler tek bir memory üzerinde çalıştırıldığından tüm
 CodeCeption bu tür sorunlar yaşamamak için memory'i her zaman temiz tutmayı öneriyor bunu da **global** ve **static**  değişkenler kullanmamaya dayandırıyor.
 
 ####Framework Modüllerini kullanmak
-Functional testleri tests/functional dizini altında bulunmaktadır.
+Functional testler **tests/functional** dizini altında bulunmaktadır.
 Bir framework modülünü kullanmak için **tests/functional.suite.yml** dosyasında gerekli yapılandırmayı yapmak gerekiyor.
 
 Örnek yapılandırma:
@@ -169,3 +171,19 @@ Bir framework modülünü kullanmak için **tests/functional.suite.yml** dosyas�
 **Symfony2:**
 ![enter image description here](https://lh3.googleusercontent.com/-bB_kT2YdIDA/VL9uRLq3PDI/AAAAAAAAALA/rukWrLxcbYQ/s0/Screenshot+from+2015-01-21+11:14:19.png "Screenshot from 2015-01-21 11:14:19.png")
 
+Modüller içerisinden framework'lerin **global** değişkenlerine yada bağımlılık yönetimi sınıfına **(Dependency Injection Container)** erişilebilir. Bunu kendi oluşturacağınız bir helper modülü ile yapabilirsiniz.
+
+**Örnek:**
+```php
+class FunctionalHelper extends \Codeception\Module
+{
+    function doSomethingWithMyService()
+    {
+        $service = $this->getModule('Symfony2') // lookup for Symfony 2 module
+            ->container // get current DI container
+            ->get('my_service'); // access a service
+
+        $service->doSomething();
+    }
+}
+```
