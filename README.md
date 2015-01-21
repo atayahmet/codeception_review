@@ -169,6 +169,7 @@ Bir framework modülünü kullanmak için **tests/functional.suite.yml** dosyas�
 Örnek yapılandırma:
 
 **Symfony2:**
+
 ![enter image description here](https://lh3.googleusercontent.com/-bB_kT2YdIDA/VL9uRLq3PDI/AAAAAAAAALA/rukWrLxcbYQ/s0/Screenshot+from+2015-01-21+11:14:19.png "Screenshot from 2015-01-21 11:14:19.png")
 
 Modüller içerisinden framework'lerin **global** değişkenlerine yada bağımlılık yönetimi sınıfına **(Dependency Injection Container)** erişilebilir. Bunu kendi oluşturacağınız bir helper modülü ile yapabilirsiniz.
@@ -187,3 +188,68 @@ class FunctionalHelper extends \Codeception\Module
     }
 }
 ```
+
+##Unit Tests
+
+CodeCeption [PhpUnit](https://phpunit.de/) testlerini kendi içinde çalıştırmaktadır. Daha önce yazılmış unit testlerinizi CodeCeption içine eklenerek çalıştırılabilir. 
+
+PhpUnit testlerinizi CodeCeption içinde yazdığınız da bir takım işlerinizi kolaylaştıracak özelliklerde sunmaktadır.
+
+Ayrıca PhpUnit kurulumuna ihtiyaç olmadığını hatırlatalım.
+
+Unit test oluşturmanın iki farklı yöntemi bulunuyor.
+
+- Birincisi klasik diyebileceğimiz PhpUnit test sınıfları.
+
+**Örnek:**
+
+```sh
+$ php codecept.phar generate:phpunit unit Example
+```
+
+**Çıktı:**
+
+```php
+class ExampleTest extends \PHPUnit_Framework_TestCase
+{
+    protected function setUp()
+    {
+    }
+
+    protected function tearDown()
+    {
+    }
+}
+```
+
+- ikincisi CodeCeption sınıflarına extend olarak oluşturulan unit testler.
+
+
+**Örnek:**
+
+```sh
+$ php codecept.phar generate:test unit Example
+```
+
+**Çıktı:**
+
+```php
+class ExampleTest extends \Codeception\TestCase\Test
+{
+    /**
+     * @var \UnitTester
+     */
+    protected $tester;
+
+    protected function _before()
+    {
+    }
+
+    protected function _after()
+    {
+    }
+}
+```
+
+Oluşturulan unit testler **tests/unit** dizini altında bulunmaktadır. Yukarıdaki her iki örnektede oluşturulan test dosyalarının adı **ExampleTest** olacaktır.
+
