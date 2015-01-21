@@ -142,6 +142,8 @@ CodeCeption frameworkleri test etme imkanı da sunmaktadır. Varsayılan olarak 
 
 - Zend Framework
 
+- Phalcon1
+
 > **Önemli:**
 > Functional testler performans bakımından Acceptance testlerden daha üstün fakat daha az stabil çalışmaktadır.
 
@@ -149,9 +151,21 @@ CodeCeption frameworkleri test etme imkanı da sunmaktadır. Varsayılan olarak 
 
 Functional testler da **headers** protokolleri, **sessions** ve **cookie** işlemlerini kullanabiliyoruz. Bunlar bize bir çok alanda kolaylık sağlayacaktır. 
 
-Örneğin **header** protokollerinde belirlediğimiz sınırları aşan işlemlerde hata tetikleyebiliriz. Yada **Session** ve **Cookie** işlemleri yapabiliriz.
+Örneğin **header** protokollerinde belirlediğimiz sınırları aşan işlemlerde hata tetikleyebiliriz.
 
 ####Paylaşımlı Hafıza (Shared Memory)
+PHP de tüm request'ler tek bir memory üzerinde çalıştırıldığından tüm testlerin aynı anda çalışması beraberinde memory sorunları getirebilir. Bunu aşmak için testleri mümkün olduğunca tek tek çalıştırabiliriz. 
+
+CodeCeption bu tür sorunlar yaşamamak için memory'i her zaman temiz tutmayı öneriyor bunu da **global** ve **static**  değişkenler kullanmamaya dayandırıyor.
+
+####Framework Modüllerini kullanmak
+Functional testleri tests/functional dizini altında bulunmaktadır.
+Bir framework modülünü kullanmak için **tests/functional.suite.yml** dosyasında gerekli yapılandırmayı yapmak gerekiyor.
+
+Örnek yapılandırma:
+
+**Symfony2:**
+![enter image description here](https://lh3.googleusercontent.com/-bB_kT2YdIDA/VL9uRLq3PDI/AAAAAAAAALA/rukWrLxcbYQ/s0/Screenshot+from+2015-01-21+11:14:19.png "Screenshot from 2015-01-21 11:14:19.png")
 
 Hey! I'm your first Markdown document in **StackEdit**[^stackedit]. Don't delete me, I'm very helpful! I can be recovered anyway in the **Utils** tab of the <i class="icon-cog"></i> **Settings** dialog.
 
