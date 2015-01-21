@@ -130,9 +130,9 @@ Yukarıda id'si **#agree_button** olan link tıklandığın da 30 saniye bekleye
 
 ##Functional Tests
 
-Functional testler Acceptance tastlerle hemen hemen kullanımı aynıdır, aralarındaki tek fark functional testlerin bir web server'a ihtiyacı olmamasıdır.
+Functional testler framework'lere bağlanarak uygulamaları test olanağ sağlar.
 
-CodeCeption frameworkleri test etme imkanı da sunmaktadır. Varsayılan olarak desteklenen frameworkler:
+Varsayılan olarak desteklenen frameworkler:
 
 - Symfony2
 
@@ -143,6 +143,8 @@ CodeCeption frameworkleri test etme imkanı da sunmaktadır. Varsayılan olarak 
 - Zend Framework
 
 - Phalcon1
+
+Functional testler Acceptance tastlerle hemen hemen kullanımı aynıdır, aralarındaki tek fark functional testlerin bir web server'a ihtiyacı olmamasıdır.
 
 > **Önemli:**
 > Functional testler performans bakımından Acceptance testlerden daha üstün fakat daha az stabil çalışmaktadır.
