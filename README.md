@@ -10,12 +10,14 @@ RUN TESTS
 
 [- WebDriver (Selenium)](#webdriver)
 
-[Functional Tests](#Functional-Tests)
+[Functional Tests](#functional-tests)
+
+[API Tests](#api-tests)
 
 ##Acceptance Tests
-Acceptance Test PhpBrowser ve WebDriver modülleriyle çalışır. Functional testlerden farkı uygulamanızın tüm işlevlerin çalışırlığını kontrol etmesidir. Yazacağınız senaryolar ile uygulamanızın stabil çalışmasında etkili olabilirsiniz.
-
-Diğer bir artısı projelerinizin hangi platformlar da geliştirildiğinin hiç bir önemi olmamasıdır. Acceptance testleri sayfa çıktılarını baz aldığı için platform kısıtlaması bulunmamaktadır.
+- Acceptance Test PhpBrowser ve WebDriver modülleriyle çalışır. 
+- Diğer bir artısı projelerinizin hangi platform da geliştirildiğinin hiç bir öneminin olmamasıdır. 
+- Performans olarak Functional testlerden biraz daha yavaş çalışır.
 
 **Örnek senaryo:**
 ```php
@@ -126,6 +128,30 @@ Uygulamaları test ederken sayfa içinde çalışacak olan javascript işlemleri
 
 Yukarıda id'si **#agree_button** olan link tıklandığın da 30 saniye bekleyecektir. 
 
+##Functional Tests
+
+Functional testler Acceptance tastlerle hemen hemen kullanımı aynıdır, aralarındaki tek fark functional testlerin bir web server'a ihtiyacı olmamasıdır.
+
+CodeCeption frameworkleri test etme imkanı da sunmaktadır. Varsayılan olarak desteklenen frameworkler:
+
+- Symfony2
+
+- Laravel 4
+
+- Yii2
+
+- Zend Framework
+
+> **Önemli:**
+> Functional testler performans bakımından Acceptance testlerden daha üstün fakat daha az stabil çalışmaktadır.
+
+####Headers, Cookies, Sessions
+
+Functional testler da **headers** protokolleri, **sessions** ve **cookie** işlemlerini kullanabiliyoruz. Bunlar bize bir çok alanda kolaylık sağlayacaktır. 
+
+Örneğin **header** protokollerinde belirlediğimiz sınırları aşan işlemlerde hata tetikleyebiliriz. Yada **Session** ve **Cookie** işlemleri yapabiliriz.
+
+####Paylaşımlı Hafıza (Shared Memory)
 
 Hey! I'm your first Markdown document in **StackEdit**[^stackedit]. Don't delete me, I'm very helpful! I can be recovered anyway in the **Utils** tab of the <i class="icon-cog"></i> **Settings** dialog.
 
