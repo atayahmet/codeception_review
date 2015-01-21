@@ -200,9 +200,9 @@ class FunctionalHelper extends \Codeception\Module
 
 ##Unit Tests
 
-CodeCeption [PhpUnit](https://phpunit.de/) testlerini kendi içinde çalıştırmaktadır. Daha önce yazılmış unit testlerinizi CodeCeption içine eklenerek çalıştırılabilir. 
+CodeCeption [PhpUnit](https://phpunit.de/) testleri kendi içinde çalıştırmaktadır. Daha önce yazılmış unit testler CodeCeption içine eklenerek çalıştırılabilir. 
 
-PhpUnit testlerinizi CodeCeption içinde yazdığınız da bir takım işlerinizi kolaylaştıracak özelliklerde sunmaktadır.
+PhpUnit testlerinizi CodeCeption içinde yazdığınız da bir takım işlerinizi kolaylaştıracak ekstra özellikler de sunmaktadır.
 
 Ayrıca PhpUnit kurulumuna ihtiyaç olmadığını hatırlatalım.
 
@@ -266,3 +266,19 @@ class ExampleTest extends \Codeception\TestCase\Test
 
 Oluşturulan unit testler **tests/unit** dizini altında bulunmaktadır. Yukarıdaki her iki örnektede oluşturulan test dosyalarının adı **ExampleTest** olacaktır.
 
+####Modül Kullanımı
+![enter image description here](https://lh3.googleusercontent.com/-elVY0tcLp1Y/VL-wlwTYRXI/AAAAAAAAALo/cN3pc4ouhVk/s0/Screenshot+from+2015-01-21+15:57:48.png "Screenshot from 2015-01-21 15:57:48.png")
+
+
+####Veritabanı Testi
+```php
+function testSavingUser()
+{
+    $user = new User();
+    $user->setName('Miles');
+    $user->setSurname('Davis');
+    $user->save();
+    $this->assertEquals('Miles Davis', $user->getFullName());
+    $this->tester->seeInDatabase('users', array('name' => 'Miles', 'surname' => 'Davis'));
+}
+```
